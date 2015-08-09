@@ -17,3 +17,25 @@ angular.module('starter', ['ionic', 'ngCordova'])
     }
   });
 })
+
+.controller("ShareController", function($scope, $cordovaSocialSharing) {
+
+  $scope.shareAnywhere = function() {
+    $cordovaSocialSharing.share("This is your message", "This is your subject", "www/img/ionic.png", "http://lucashenrique.me")
+        .then(function(result) {
+          console.log('sucess');
+        }, function(err) {
+          console.log('An error occured');
+        });
+  }
+
+  $scope.shareViaTwitter = function(message, image, link) {
+    $cordovaSocialSharing.shareViaTwitter(message, image, link)
+        .then(function(result) {
+          console.log('sucess');
+        }, function(err) {
+          console.log('An error occured');
+        });
+  }
+
+});
