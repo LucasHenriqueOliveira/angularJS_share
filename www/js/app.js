@@ -46,4 +46,13 @@ angular.module('starter', ['ionic', 'ngCordova'])
                 console.log('An error occured');
             });
     }
+
+    $scope.shareViaWhatsApp = function(message, image, link) {
+        $cordovaSocialSharing.shareViaWhatsApp(message, image, link)
+            .then(function (result) {
+                console.log('sucess');
+            }, function(err) {
+                console.log('An error occured');
+            });
+    }
 });
